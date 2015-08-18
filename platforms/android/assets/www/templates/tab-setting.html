@@ -1,0 +1,20 @@
+<ion-view view-title="{{userInfo.Nickname+'的设置'}}" can-swipe-back=false cache-view="false">
+    <ion-content padding="true" class="has-header">
+
+
+        <ion-pane  style="position:relative;top:20px;width:300px;height:300px;margin:0 auto;">
+            <div id="my-map" style="width:300px;height:300px;margin:0 auto;"></div>
+        </ion-pane>
+
+        <button class="button button-positive button-block" id="updateButton"
+                style="position:relative;top:50px;width:80%;margin:0 auto;" ng-click="updateAddress()">
+            更新位置信息
+        </button>
+
+        <button class="button button-positive button-block"
+                style="position:relative;top:100px;width:80%;margin:0 auto;" ng-click="logOut()">
+            注销
+        </button>
+
+    </ion-content>
+</ion-view>

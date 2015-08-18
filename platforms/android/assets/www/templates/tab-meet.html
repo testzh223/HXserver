@@ -1,0 +1,24 @@
+<ion-view view-title="{{userInfo.Nickname}}的嗨羞" can-swipe-back=false cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-light icon ion-plus-round"  ng-click="filterUI()">
+            发起嗨羞
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-light icon ion-ios-body" ng-click="editSpecialInfo()">
+            个人特征<span class="header-badge badge badge-assertive" style="display:inline" ng-if="HXUI.SIReminder">!</span>
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        {{userInfo.Nickname}}的嗨羞
+    </ion-nav-title>
+    <ion-content class="has-header">
+        <div ng-repeat="x in meetsInfo" class="item"  style="height:120px;width:100%;" ng-click="doMeet(x._id)">
+            <img ng-src="{{getSrc(x)}}" id="img{{x._id}}" style="height:80px;width:80px;position:absolute;left:20px;top:20px;border:none;"></img>
+            <p style="position:absolute;top:10px;font-weight:600;font-size:18px;left:120px;">{{x.Address}}</p>
+            <p style="position:absolute;top:50px;font-weight:600;font-size:18px;left:120px;" ng-bind="getStatus(x)"></p>
+            <p style="position:absolute;top:90px;font-weight:600;font-size:18px;left:120px;">{{moment(x.Update,'x').fromNow()}}</p>
+            <span class="header-badge badge badge-assertive" style="width:60px;font-size:10px;">{{HXUI.meetsInfo[x._id].alert}}</span>
+        </div>
+    </ion-content>
+</ion-view>

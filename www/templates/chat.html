@@ -1,0 +1,29 @@
+<ion-view view-title="与{{HXUI.chatTarget.Nickname}}对话中" can-swipe-back=false>
+
+    <ion-nav-buttons side="right">
+        <button class="button button-clear icon-left ion-ios-arrow-back" ng-click="back()">
+            返回
+        </button>
+    </ion-nav-buttons>
+
+    <ion-nav-title>
+        与{{HXUI.chatTarget.Nickname}}对话中
+    </ion-nav-title>
+
+    <ion-content class="content-stable"  on-swipe-right="onSwipeRight()"  on-swipe-left="onSwipeLeft()">
+        <div ng-repeat="x in HXUI.chats[HXUI.chatTarget.Account]" style="margin-top:10px;width:100%;float:left;">
+            <div ng-style="getStyle(x)">{{x.Text}}</div>
+            <span ng-style="getStyle2()">{{moment(x.Update,'x').fromNow()}}</span>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="内容。。。" on-return="sendMessage()" ng-model="message"/>
+        </label>
+        <button class="button button-clear" ng-click="sendMessage()">
+            发送
+        </button>
+    </ion-footer-bar>
+
+</ion-view>
